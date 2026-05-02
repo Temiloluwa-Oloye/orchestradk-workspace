@@ -1,0 +1,105 @@
+{
+  "agent": {
+    "name": "{{ agent_name }}",
+    "version": "{{ version }}",
+    "description": "{{ description }}",
+    "type": "langgraph"
+  },
+  "runtime": {
+    "python_version": "{{ python_version | default('3.10') }}",
+    "entry_point": "{{ entry_point }}",
+    "timeout": {{ timeout | default(300) }},
+    "max_retries": {{ max_retries | default(3) }},
+    "memory_limit": "{{ memory_limit | default('512MB') }}"
+  },
+  "llm": {
+    "provider": "{{ llm_provider | default('watsonx') }}",
+    "model": "{{ llm_model | default('ibm/granite-13b-chat-v2') }}",
+    "parameters": {
+      "temperature": {{ llm_temperature | default(0.7) }},
+      "max_tokens": {{ llm_max_tokens | default(2048) }},
+      "top_p": {{ llm_top_p | default(0.9) }},
+      "top_k": {{ llm_top_k | default(50) }}
+    }
+  },
+  "state": {
+    "persistence": {{ state_persistence | default('false') | lower }},
+    "backend": "{{ state_backend | default('memory') }}",
+    "schema": {
+      {% for field_name, field_info in state_fields.items() %}
+      "{{ field_name }}": {
+        "type": "{{ field_info.type }}",
+        "description": "{{ field_info.description }}",
+        "required": {{ field_info.required | default(false) | lower }}
+        {% if field_info.default %},
+        "default": {{ field_info.default | tojson }}
+        {% endif %}
+      }{% if not loop.last %},{% endif %}
+      {% endfor %}
+    }
+  },
+  "nodes": [
+    {% for node in nodes %}
+    {
+      "name": "{{ node.name }}",
+      "type": "{{ node.type | default('function') }}",
+      "function": "{{ node.function }}",
+      "description": "{{ node.description }}",
+      "config": {
+        "timeout": {{ node.timeout | default(60) }},
+        "retries": {{ node.retries | default(2) }}
+      }
+      {% if node.dependencies %},
+      "dependencies": {{ node.dependencies | tojson }}
+      {% endif %}
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ],
+  "edges": [
+    {% for edge in edges %}
+    {
+      "from": "{{ edge.from }}",
+      "to": "{{ edge.to }}"
+      {% if edge.condition %},
+      "condition": "{{ edge.condition }}"
+      {% endif %}
+      {% if edge.condition_type %},
+      "condition_type": "{{ edge.condition_type }}"
+      {% endif %}
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ],
+  "workflow": {
+    "entry_point": "{{ workflow_entry_point }}",
+    "exit_points": {{ exit_points | tojson }},
+    "error_handling": {
+      "strategy": "{{ error_strategy | default('retry') }}",
+      "max_retries": {{ error_max_retries | default(3) }},
+      "fallback_node": "{{ error_fallback_node | default('') }}"
+    }
+  },
+  "logging": {
+    "level": "{{ log_level | default('INFO') }}",
+    "format": "{{ log_format | default('json') }}",
+    "destinations": {{ log_destinations | default(['console']) | tojson }}
+  },
+  "monitoring": {
+    "enabled": {{ monitoring_enabled | default('true') | lower }},
+    "metrics": {{ monitoring_metrics | default(['latency', 'throughput', 'errors']) | tojson }},
+    "tracing": {{ monitoring_tracing | default('false') | lower }}
+  },
+  "security": {
+    "authentication": {{ security_auth | default('true') | lower }},
+    "authorization": {{ security_authz | default('true') | lower }},
+    "encryption": {
+      "at_rest": {{ security_encryption_rest | default('false') | lower }},
+      "in_transit": {{ security_encryption_transit | default('true') | lower }}
+    }
+  },
+  "metadata": {
+    "created_at": "{{ created_at }}",
+    "created_by": "{{ created_by | default('OrchestrADK') }}",
+    "framework_version": "{{ framework_version | default('0.1.0') }}",
+    "tags": {{ tags | default([]) | tojson }}
+  }
+}
