@@ -1,0 +1,10 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Output directory (we don't want to track generated agents)
+output/
+
+# Environment variables
+.env
