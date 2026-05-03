@@ -28,7 +28,7 @@ class LLMClient:
         api_key: str,
         project_id: str,
         url: str = "https://us-south.ml.cloud.ibm.com",
-        model_id: str = "ibm/granite-13b-chat-v2"
+        model_id: str = "ibm/granite-8b-code-instruct"
     ):
         """
         Initialize the LLM client.

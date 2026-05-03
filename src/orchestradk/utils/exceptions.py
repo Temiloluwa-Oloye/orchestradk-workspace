@@ -22,6 +22,11 @@ class GenerationError(OrchestradkError):
     pass
 
 
+class TemplateError(Exception):
+    """Raised when there is an issue processing the WatsonX agent templates."""
+    pass
+
+
 class ValidationError(OrchestradkError):
     """Raised when generated outputs fail ADK schema or syntax validation."""
     pass

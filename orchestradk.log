@@ -1,0 +1,75 @@
+2026-05-03 03:38:28,255 - orchestradk.llm.client - INFO - LLM client initialized with model: ibm/granite-8b-code-instruct
+2026-05-03 03:38:28,262 - orchestradk.agents.scaffolder.generator - INFO - CodeGenerator initialized with templates from: C:\Users\Temiloluwa Oloye\Desktop\AI, Data, Cloud\Projects\orchestradk-workspace\src\orchestradk\agents\scaffolder\templates
+2026-05-03 03:38:28,263 - orchestradk.agents.scaffolder.agent - INFO - ScaffolderAgent initialized
+2026-05-03 03:38:28,263 - orchestradk.agents.configurator.yaml_generator - INFO - YAMLGenerator initialized with template dir: C:\Users\Temiloluwa Oloye\Desktop\AI, Data, Cloud\Projects\orchestradk-workspace\src\orchestradk\agents\configurator\templates
+2026-05-03 03:38:28,263 - orchestradk.agents.configurator.json_generator - INFO - JSONGenerator initialized with template dir: C:\Users\Temiloluwa Oloye\Desktop\AI, Data, Cloud\Projects\orchestradk-workspace\src\orchestradk\agents\configurator\templates
+2026-05-03 03:38:28,263 - orchestradk.agents.configurator.schema_validator - INFO - SchemaValidator initialized with schema dir: C:\Users\Temiloluwa Oloye\Desktop\AI, Data, Cloud\Projects\orchestradk-workspace\config\adk_schemas
+2026-05-03 03:38:28,263 - orchestradk.agents.configurator.agent - INFO - ConfiguratorAgent initialized
+2026-05-03 03:38:28,263 - orchestradk.orchestrator.coordinator - INFO - AgentCoordinator initialized
+2026-05-03 03:38:28,263 - orchestradk.orchestrator.coordinator - INFO - Initializing coordinator with agents...
+2026-05-03 03:38:28,264 - orchestradk.orchestrator.coordinator - INFO - Initializing scaffolder agent...
+2026-05-03 03:38:28,264 - orchestradk.agents.scaffolder.agent - INFO - Building scaffolder workflow graph...
+2026-05-03 03:38:28,286 - orchestradk.agents.scaffolder.agent - INFO - Scaffolder workflow graph built successfully
+2026-05-03 03:38:28,287 - orchestradk.orchestrator.coordinator - INFO - Scaffolder agent ready
+2026-05-03 03:38:28,287 - orchestradk.orchestrator.coordinator - INFO - Initializing configurator agent...
+2026-05-03 03:38:28,287 - orchestradk.agents.configurator.agent - INFO - Building configurator workflow graph...
+2026-05-03 03:38:28,288 - orchestradk.agents.configurator.schema_validator - INFO - Loading ADK schemas
+2026-05-03 03:38:28,288 - orchestradk.agents.configurator.schema_validator - WARNING - agent_schema.json not found or empty, using default
+2026-05-03 03:38:28,289 - orchestradk.agents.configurator.schema_validator - WARNING - skill_schema.json not found or empty, using default
+2026-05-03 03:38:28,311 - orchestradk.agents.configurator.agent - INFO - Configurator workflow graph built successfully
+2026-05-03 03:38:28,311 - orchestradk.orchestrator.coordinator - INFO - Configurator agent ready
+2026-05-03 03:38:28,311 - orchestradk.orchestrator.coordinator - INFO - Coordinator initialization complete
+2026-05-03 03:38:28,325 - orchestradk.orchestrator.coordinator - INFO - Starting coordinated workflow
+2026-05-03 03:38:28,325 - orchestradk.orchestrator.coordinator - INFO - Stage 1: Executing scaffolder agent
+2026-05-03 03:38:28,325 - orchestradk.agents.scaffolder.agent - INFO - Processing scaffolder request: Create an intelligent DevOps support agent that takes a user's error log, uses RAG to query internal...
+2026-05-03 03:38:28,334 - orchestradk.agents.scaffolder.agent - INFO - Executing parse_request node
+2026-05-03 03:38:32,034 - ibm_watsonx_ai.client - INFO - Client successfully initialized
+2026-05-03 03:38:35,723 - ibm_watsonx_ai.wml_resource - INFO - Successfully finished Get available foundation models for url: 'https://us-south.ml.cloud.ibm.com/ml/v1/foundation_model_specs?version=2024-10-14&project_id=2e39c791-78bc-4097-be8b-c401a6e230cc&filters=function_text_generation%2C%21lifecycle_withdrawn%3Aand&limit=200'
+2026-05-03 03:38:39,406 - httpx - INFO - HTTP Request: POST https://us-south.ml.cloud.ibm.com/ml/v1/text/generation?version=2024-10-14 "HTTP/1.1 200 OK"
+2026-05-03 03:38:39,407 - ibm_watsonx_ai.wml_resource - INFO - Successfully finished generate for url: 'https://us-south.ml.cloud.ibm.com/ml/v1/text/generation?version=2024-10-14'
+2026-05-03 03:38:39,407 - orchestradk.llm.client - INFO - Successfully generated text (attempt 1)
+2026-05-03 03:38:39,422 - orchestradk.agents.scaffolder.agent - INFO - Executing generate_code node
+2026-05-03 03:38:39,422 - orchestradk.agents.scaffolder.generator - INFO - Generating code for agent: devops_agent
+2026-05-03 03:38:39,465 - orchestradk.agents.scaffolder.generator - INFO - Successfully generated 4 files
+2026-05-03 03:38:39,467 - orchestradk.agents.scaffolder.agent - INFO - Executing validate_code node
+2026-05-03 03:38:39,469 - orchestradk.agents.scaffolder.agent - INFO - Executing finalize_output node
+2026-05-03 03:38:39,470 - orchestradk.orchestrator.coordinator - INFO - Scaffolder stage completed successfully
+2026-05-03 03:38:39,470 - orchestradk.orchestrator.coordinator - INFO - Stage 2: Executing configurator agent
+2026-05-03 03:38:39,470 - orchestradk.agents.configurator.agent - INFO - Processing configurator request for agent: devops_agent
+2026-05-03 03:38:39,472 - orchestradk.agents.configurator.agent - INFO - Executing generate_yaml node
+2026-05-03 03:38:39,472 - orchestradk.agents.configurator.yaml_generator - INFO - Generating all YAML configuration files
+2026-05-03 03:38:39,472 - orchestradk.agents.configurator.yaml_generator - INFO - Generating agent.yaml
+2026-05-03 03:38:39,480 - orchestradk.agents.configurator.yaml_generator - INFO - agent.yaml generated successfully
+2026-05-03 03:38:39,481 - orchestradk.agents.configurator.yaml_generator - INFO - Generating skills.yaml
+2026-05-03 03:38:39,485 - orchestradk.agents.configurator.yaml_generator - INFO - skills.yaml generated successfully
+2026-05-03 03:38:39,485 - orchestradk.agents.configurator.agent - INFO - Generated 2 YAML files
+2026-05-03 03:38:39,486 - orchestradk.agents.configurator.agent - INFO - Executing generate_json node
+2026-05-03 03:38:39,486 - orchestradk.agents.configurator.json_generator - INFO - Generating all JSON configuration files
+2026-05-03 03:38:39,486 - orchestradk.agents.configurator.json_generator - INFO - Generating config.json
+2026-05-03 03:38:39,507 - orchestradk.agents.configurator.json_generator - INFO - config.json generated successfully
+2026-05-03 03:38:39,508 - orchestradk.agents.configurator.json_generator - INFO - Generating schema.json
+2026-05-03 03:38:39,508 - orchestradk.agents.configurator.json_generator - INFO - schema.json generated successfully
+2026-05-03 03:38:39,508 - orchestradk.agents.configurator.agent - INFO - Generated 2 JSON files
+2026-05-03 03:38:39,510 - orchestradk.agents.configurator.agent - INFO - Executing validate_configs node
+2026-05-03 03:38:39,512 - orchestradk.agents.configurator.schema_validator - INFO - Validating all configuration files
+2026-05-03 03:38:39,513 - orchestradk.agents.configurator.schema_validator - INFO - Validating agent.yaml
+2026-05-03 03:38:39,518 - orchestradk.agents.configurator.schema_validator - INFO - agent.yaml validation passed
+2026-05-03 03:38:39,518 - orchestradk.agents.configurator.schema_validator - INFO - Validating skills.yaml
+2026-05-03 03:38:39,522 - orchestradk.agents.configurator.schema_validator - INFO - skills.yaml validation passed
+2026-05-03 03:38:39,522 - orchestradk.agents.configurator.schema_validator - INFO - Validating config.json
+2026-05-03 03:38:39,523 - orchestradk.agents.configurator.schema_validator - INFO - config.json validation passed
+2026-05-03 03:38:39,523 - orchestradk.agents.configurator.schema_validator - INFO - Validating schema.json
+2026-05-03 03:38:39,526 - orchestradk.agents.configurator.schema_validator - INFO - schema.json validation passed
+2026-05-03 03:38:39,526 - orchestradk.agents.configurator.schema_validator - INFO - All configuration files validated successfully
+2026-05-03 03:38:39,526 - orchestradk.agents.configurator.agent - INFO - All configuration files validated successfully
+2026-05-03 03:38:39,527 - orchestradk.agents.configurator.agent - INFO - Executing finalize_output node
+2026-05-03 03:38:39,527 - orchestradk.agents.configurator.agent - INFO - Configuration package finalized successfully
+2026-05-03 03:38:39,528 - orchestradk.orchestrator.coordinator - INFO - Configurator stage completed successfully
+2026-05-03 03:38:39,528 - orchestradk.orchestrator.coordinator - INFO - Stage 3: Assembling complete package
+2026-05-03 03:38:39,528 - orchestradk.orchestrator.coordinator - INFO - Workflow completed successfully in 11.20s
+2026-05-03 03:38:39,679 - orchestradk.orchestrator.coordinator - INFO - Cleaning up coordinator and agents...
+2026-05-03 03:38:39,680 - orchestradk.orchestrator.coordinator - INFO - Cleaning up scaffolder agent
+2026-05-03 03:38:39,680 - orchestradk.agents.scaffolder.agent - INFO - Cleaning up scaffolder agent
+2026-05-03 03:38:39,680 - orchestradk.orchestrator.coordinator - INFO - Cleaning up configurator agent
+2026-05-03 03:38:39,680 - orchestradk.agents.configurator.agent - INFO - Cleaning up configurator agent
+2026-05-03 03:38:39,681 - orchestradk.orchestrator.coordinator - INFO - Coordinator cleanup complete
