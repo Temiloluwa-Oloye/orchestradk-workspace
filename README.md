@@ -67,7 +67,7 @@ The Configurator: Compiles the validated data into IBM-compliant agent.yaml and 
 
 ## 📂 Repository Structure
 
-Plaintext
+```bash
 orchestradk-workspace/
 ├── src/
 │   ├── cli/                  # Command Line Interface logic
@@ -82,7 +82,7 @@ orchestradk-workspace/
 ├── requirements.txt          # Frozen dependencies
 ├── Dockerfile                # Isolated container environment
 └── .env.example              # Template for API credentials
-
+```
 ## 🏆 Hackathon Value Proposition
 Developer Experience (DX): Lowers the barrier to entry for building complex, multi-node agents on IBM Cloud.
 
