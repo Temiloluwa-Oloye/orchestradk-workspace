@@ -66,6 +66,7 @@ The God-Mode Templates: Unlike naive code generators, OrchestrADK uses advanced 
 The Configurator: Compiles the validated data into IBM-compliant agent.yaml and skills.yaml files, ensuring every deployment passes the Orchestrate Schema Validator on the first try.
 
 ## 📂 Repository Structure
+
 Plaintext
 orchestradk-workspace/
 ├── src/
@@ -81,6 +82,7 @@ orchestradk-workspace/
 ├── requirements.txt          # Frozen dependencies
 ├── Dockerfile                # Isolated container environment
 └── .env.example              # Template for API credentials
+
 ## 🏆 Hackathon Value Proposition
 Developer Experience (DX): Lowers the barrier to entry for building complex, multi-node agents on IBM Cloud.
 
@@ -88,4 +90,4 @@ Enterprise Reliability: Eliminates the "fragility" of standard AI code generator
 
 Extensibility: Built entirely on open-source standards (LangGraph, Pydantic, Jinja2), ready to scale into a full graphical interface.
 
-Built with 💻 and ☕ by Temiloluwa Oloye AI Engineer & Researcher
+### Built with 💻 and ☕ by Temiloluwa Oloye AI Engineer & Researcher
