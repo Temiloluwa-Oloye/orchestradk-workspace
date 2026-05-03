@@ -37,7 +37,7 @@ Clone the repository and configure your IBM Cloud environment.
 ```bash
 git clone [https://github.com/your-username/orchestradk-workspace.git](https://github.com/your-username/orchestradk-workspace.git)
 cd orchestradk-workspace
-cp .env.example .env
+cp .env.example .env```
 
 2. Install Dependencies
 Install the exact framework versions required to run the engine.
