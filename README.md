@@ -35,7 +35,7 @@ We value your time. OrchestrADK is designed for a zero-friction deployment.
 ### 1. Setup Credentials
 Clone the repository and configure your IBM Cloud environment.
 ```bash
-git clone [https://github.com/your-username/orchestradk-workspace.git](https://github.com/your-username/orchestradk-workspace.git)
+git clone [https://github.com/Temiloluwa-Oloye/orchestradk-workspace.git](https://github.com/Temiloluwa-Oloye/orchestradk-workspace.git)
 cd orchestradk-workspace
 cp .env.example .env
 ```
