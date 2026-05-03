@@ -1,9 +1,14 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 import sys
 import types
 from unittest.mock import MagicMock
 from collections import defaultdict
 import importlib.abc
 import importlib.machinery
+
+
 
 # --- HACKATHON SYSTEM INTERCEPTOR (THE TRUE NUKE) ---
 # 1. Clean up any lingering broken mocks in memory
